@@ -2,18 +2,20 @@ import './App.css'
 import {Grid, GridItem, Show} from "@chakra-ui/react";
 import {NavBar} from "./components/NavBar";
 import {GameGrid} from "./components/GameGrid";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {GenreList} from "./components/GenreList";
+import {Genre} from "./Hooks/useGenre";
 
 function App() {
     let setTitle = false
     useEffect(() => {
         if(!setTitle){
             document.title = 'Game Hub'
-            console.log('set document title.')
             setTitle = true
         }
     })
+
+    const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
 
   return <Grid templateAreas={{
       base: ` "nav" "main"`,
@@ -26,12 +28,12 @@ function App() {
       <GridItem area={'nav'}><NavBar></NavBar></GridItem>
       <Show above="lg">
           <GridItem area="aside" paddingX='5'>
-              <GenreList></GenreList>
+              <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)}></GenreList>
           </GridItem>
       </Show>
 
       <GridItem area={'main'}>
-          <GameGrid></GameGrid>
+          <GameGrid selectedGenre={selectedGenre}></GameGrid>
       </GridItem>
 
   </Grid>
