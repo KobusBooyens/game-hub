@@ -2,7 +2,7 @@ import './App.css'
 import {Box, Flex, Grid, GridItem, Show} from "@chakra-ui/react";
 import {NavBar} from "./components/NavBar";
 import {GameGrid} from "./components/GameGrid";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {GenreList} from "./components/GenreList";
 import {Genre} from "./Hooks/useGenre";
 import {PlatformSelector} from "./components/PlatformSelector";
@@ -18,14 +18,6 @@ export interface GameQuery {
 }
 
 function App() {
-    let setTitle = false
-    useEffect(() => {
-        if(!setTitle){
-            document.title = 'Game Hub'
-            setTitle = true
-        }
-    })
-
     const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
   return <Grid templateAreas={{
