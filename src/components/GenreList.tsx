@@ -23,7 +23,7 @@ export const GenreList = ({onSelectGenre, selectedGenre} : Props) => {
         <>
             <Heading fontSize={"2xl"} marginBottom={3}>Genres</Heading>
             <List >
-                {data?.results.map(g =>
+                {data?.results.map((g: Genre) =>
                     <ListItem key={g.id} paddingY='5px'>
                         <HStack>
                             <Image boxSize="32px"
