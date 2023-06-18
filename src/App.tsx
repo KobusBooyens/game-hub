@@ -4,15 +4,13 @@ import {NavBar} from "./components/NavBar";
 import {GameGrid} from "./components/GameGrid";
 import React, {useState} from "react";
 import {GenreList} from "./components/GenreList";
-import {Genre} from "./Hooks/useGenre";
 import {PlatformSelector} from "./components/PlatformSelector";
 import {SortSelector} from "./components/SortSelector";
 import {GameHeading} from "./components/GameHeading";
-import {Platform} from "./Hooks/usePlatforms";
 
 export interface GameQuery {
-    genre: Genre | null,
-    platform: Platform | null,
+    genreId?: number,
+    platformId?: number
     sortOrder: string,
     searchText: string
 }
@@ -34,8 +32,8 @@ function App() {
 
               <Show above="lg">
                   <GridItem area="aside" paddingX='5'>
-                      <GenreList onSelectGenre={(genre) => setGameQuery({...gameQuery, genre})}
-                                 selectedGenre={gameQuery.genre}/>
+                      <GenreList onSelectGenre={(genre) => setGameQuery({...gameQuery, genreId: genre.id})}
+                                 selectedGenreId={gameQuery.genreId}/>
                   </GridItem>
               </Show>
 
@@ -44,8 +42,8 @@ function App() {
                       <GameHeading gameQuery={gameQuery}/>
                       <Flex marginBottom={5}>
                           <Box marginRight={5}>
-                              <PlatformSelector onSelectedPlatform={(platform) => setGameQuery({...gameQuery, platform})}
-                                                selectedPlatform={gameQuery.platform}/>
+                              <PlatformSelector onSelectedPlatform={(platform) => setGameQuery({...gameQuery, platformId: platform.id})}
+                                                selectedPlatformId={gameQuery?.platformId}/>
                           </Box>
                           <SortSelector onSelectSortOrder={(sortOrder) => setGameQuery({...gameQuery, sortOrder})}
                                         selectedSortOrder={gameQuery.sortOrder}/>
