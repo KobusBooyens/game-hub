@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useParams} from "react-router-dom";
-import {Box, Heading, Spinner, Text} from "@chakra-ui/react";
+import {Box, Button, Heading, Spinner, Text} from "@chakra-ui/react";
 import useGame from "../hooks/useGame";
+import ExpandableText from "../components/ExpandableText";
 
 export const GameDetailPage = () => {
     const { slug } = useParams()
@@ -11,10 +12,14 @@ export const GameDetailPage = () => {
 
     if(error || !game) throw error
 
+    // const[description, setDescription] =  useState('some description')
+
     return (
         <>
             <Heading>{game.name}</Heading>
-            <Text>{game.description_raw}</Text>
+            <ExpandableText>
+                {game.description_raw}
+            </ExpandableText>
         </>
     )
 }
