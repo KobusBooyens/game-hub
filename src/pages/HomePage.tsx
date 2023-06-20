@@ -25,16 +25,15 @@ export const HomePage = () => {
 
             <GridItem area={'main'}>
                 <Box paddingLeft={2}>
-                    <GameHeading/>
+                    <GameHeading />
                     <Flex marginBottom={5}>
                         <Box marginRight={5}>
-                            <PlatformSelector/>
+                            <PlatformSelector />
                         </Box>
                         <SortSelector />
                     </Flex>
                 </Box>
-
-                <GameGrid/>
+                <GameGrid />
             </GridItem>
         </Grid>
     )
