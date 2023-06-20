@@ -2,14 +2,9 @@ import genres from '../data/genres'
 import {useQuery} from "@tanstack/react-query";
 import ApiClient from "../services/api-client";
 import ms from 'ms'
-const apiClient = new ApiClient<Genre>('/genres')
+import {Genre} from "../entities/Genre";
 
-export interface Genre{
-    id: number,
-    name: string,
-    slug: string,
-    image_background: string
-}
+const apiClient = new ApiClient<Genre>('/genres')
 
 const useGenres = () =>
      useQuery({

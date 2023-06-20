@@ -1,9 +1,10 @@
 import React from 'react'
 import {Button, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
 import {BsChevronDown} from "react-icons/all";
-import usePlatforms, {Platform} from "../Hooks/usePlatforms";
-import usePlatform from "../Hooks/usePlatform";
+import usePlatforms from "../hooks/usePlatforms";
+import usePlatform from "../hooks/usePlatform";
 import useGameQueryStore from "../store";
+import {Platform} from "../entities/Platform";
 
 export const PlatformSelector = () => {
     const {data: platforms, error} = usePlatforms()
