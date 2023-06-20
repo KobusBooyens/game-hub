@@ -1,5 +1,4 @@
 import React from 'react'
-import {Game} from "../entities/Game";
 import {Screenshot} from "../entities/Screenshot";
 import {Card, Image} from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url";
