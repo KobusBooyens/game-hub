@@ -11,7 +11,7 @@ interface Prop{
 export const ScreenshotGrid = ({gameId} : Prop) => {
     const {data: screenshot, error, isLoading} = useScreenshots(gameId)
 
-    if(isLoading) return <Spinner/>
+    if(isLoading) return null
     if(error) throw error
 
     return (

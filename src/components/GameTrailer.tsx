@@ -9,8 +9,8 @@ interface Props{
 export const GameTrailer = ({gameId} : Props) => {
 
     const {data: trailer, error, isLoading} = useTrailer(gameId)
-    console.log(trailer)
-    if(isLoading) return <Spinner/>
+
+    if(isLoading) return null
     if(error) throw error
 
     const dataToUse  = trailer?.results[0]
